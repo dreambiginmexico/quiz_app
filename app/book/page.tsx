@@ -98,7 +98,7 @@ export default function BookPage() {
             </label>
             <label className="wideField">
               Buying timeline
-              <select required value={form.timeline} onChange={(event) => updateField("timeline", event.target.value)}>
+              <select value={form.timeline} onChange={(event) => updateField("timeline", event.target.value)}>
                 <option value="">Select one</option>
                 <option value="0-3 months">0-3 months</option>
                 <option value="3-6 months">3-6 months</option>

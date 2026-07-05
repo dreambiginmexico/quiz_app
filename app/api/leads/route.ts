@@ -33,7 +33,7 @@ function buildLeadEmail(lead: LeadPayload & { submittedAt: string }) {
     ["Email", lead.email],
     ["Phone", lead.phone || "Not provided"],
     ["Country", lead.country],
-    ["Timeline", lead.timeline],
+    ["Timeline", lead.timeline || "Not provided"],
     ["Matched area", lead.match],
     ["Source", lead.source || "Not provided"],
     ["Submitted", lead.submittedAt]
@@ -63,7 +63,7 @@ function buildLeadEmail(lead: LeadPayload & { submittedAt: string }) {
       `Email: ${lead.email}`,
       `Phone: ${lead.phone || "Not provided"}`,
       `Country: ${lead.country}`,
-      `Timeline: ${lead.timeline}`,
+      `Timeline: ${lead.timeline || "Not provided"}`,
       `Matched area: ${lead.match}`,
       `Source: ${lead.source || "Not provided"}`,
       `Submitted: ${lead.submittedAt}`,
@@ -122,7 +122,7 @@ async function sendLeadEmail(lead: LeadPayload & { submittedAt: string }) {
 export async function POST(request: Request) {
   const payload = (await request.json()) as LeadPayload;
 
-  if (!payload.name || !payload.email || !payload.country || !payload.timeline || !payload.match) {
+  if (!payload.name || !payload.email || !payload.country || !payload.match) {
     return NextResponse.json({ error: "Missing required lead fields" }, { status: 400 });
   }
 
