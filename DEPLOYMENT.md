@@ -13,6 +13,10 @@ NEXT_PUBLIC_SITE_URL=https://your-domain.com
 NEXT_PUBLIC_GA_ID=G-XXXXXXXXXX
 NEXT_PUBLIC_GTM_ID=GTM-XXXXXXX
 NEXT_PUBLIC_META_PIXEL_ID=XXXXXXXXXXXXXXX
+NEXT_PUBLIC_BOOKING_URL=https://your-booking-link
+RESEND_API_KEY=re_xxxxxxxxx
+RESEND_FROM_EMAIL=Riviera Nayarit Quiz <leads@your-domain.com>
+LEAD_NOTIFY_EMAIL=you@your-domain.com
 LEAD_WEBHOOK_URL=https://your-crm-webhook-url
 LEAD_WEBHOOK_SECRET=optional-shared-secret
 ```
@@ -21,9 +25,13 @@ LEAD_WEBHOOK_SECRET=optional-shared-secret
 
 The quiz posts leads to `/api/leads`.
 
+If `RESEND_API_KEY` is set, the app emails every lead through Resend. By default, leads go to `jim@dreambiginmexico.com`; set `LEAD_NOTIFY_EMAIL` to override that.
+
+Use a verified Resend sender in `RESEND_FROM_EMAIL`. For early testing, Resend's onboarding sender may work only with the email attached to your Resend account.
+
 If `LEAD_WEBHOOK_URL` is set, the app forwards the lead to your CRM, Zapier, Make, GoHighLevel, HubSpot, or another webhook receiver.
 
-If `LEAD_WEBHOOK_URL` is missing, the lead is only logged by the server. That is fine for testing, but not for production.
+If both Resend and `LEAD_WEBHOOK_URL` are missing, the lead is only logged by the server. That is fine for testing, but not for production.
 
 ## 3. Tracking
 
@@ -65,7 +73,8 @@ Meta:
 
 ## 6. Production Checklist
 
-- Replace the email CTA in `app/page.tsx` with your preferred booking link if you use Calendly, GoHighLevel, or another scheduler.
+- Set `NEXT_PUBLIC_BOOKING_URL` if you use Calendly, GoHighLevel, or another scheduler. Without it, the app uses the built-in `/book` request form.
+- Add `RESEND_API_KEY`, `RESEND_FROM_EMAIL`, and `LEAD_NOTIFY_EMAIL`.
 - Connect `LEAD_WEBHOOK_URL`.
 - Add tracking IDs.
 - Add your domain in Vercel.

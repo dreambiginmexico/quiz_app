@@ -637,6 +637,8 @@ function FullResult({
   onBack: () => void;
   onRestart: () => void;
 }) {
+  const bookingUrl = process.env.NEXT_PUBLIC_BOOKING_URL || "/book";
+
   return (
     <>
       <div className="resultGrid">
@@ -671,7 +673,7 @@ function FullResult({
       <div className="nextStepBox">
         <h3>Smart next step</h3>
         <p>{area.nextStep}</p>
-        <a className="primaryLink" href="mailto:info@dreambiginmexico.com?subject=Riviera%20Nayarit%20area%20match%20call">
+        <a className="primaryLink" href={bookingUrl}>
           Book a fit call
         </a>
       </div>
