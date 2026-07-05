@@ -31,6 +31,22 @@ button {
   font: inherit;
 }
 
+.siteLogo {
+  position: fixed;
+  top: 18px;
+  left: 18px;
+  z-index: 20;
+  display: block;
+  width: clamp(92px, 12vw, 142px);
+  filter: drop-shadow(0 6px 18px rgba(0, 0, 0, 0.28));
+}
+
+.siteLogo img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
 .hero {
   min-height: 48vh;
   position: relative;
@@ -441,7 +457,7 @@ textarea:focus {
 }
 
 .contentPage {
-  padding-top: 54px;
+  padding-top: 104px;
 }
 
 .contentHero {
@@ -469,12 +485,18 @@ textarea:focus {
 }
 
 @media (max-width: 760px) {
+  .siteLogo {
+    top: 12px;
+    left: 12px;
+    width: 92px;
+  }
+
   .hero {
     min-height: 42vh;
   }
 
   .heroContent {
-    padding-top: 64px;
+    padding-top: 84px;
   }
 
   .optionsGrid,

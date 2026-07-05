@@ -1,4 +1,6 @@
 import type { Metadata } from "next";
+import Image from "next/image";
+import Link from "next/link";
 import Script from "next/script";
 import "./globals.css";
 
@@ -71,6 +73,15 @@ export default function RootLayout({
             `}
           </Script>
         ) : null}
+        <Link className="siteLogo" href="/" aria-label="Dream Big in Mexico home">
+          <Image
+            alt="Dream Big in Mexico"
+            height={703}
+            priority
+            src="/dream-big-logo.png"
+            width={1104}
+          />
+        </Link>
         {children}
       </body>
     </html>
