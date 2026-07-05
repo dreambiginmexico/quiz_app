@@ -226,6 +226,16 @@ const questions: Question[] = [
     ]
   },
   {
+    prompt: "Do you prefer a gated community?",
+    detail: "This helps separate private, managed living from open town neighborhoods.",
+    options: [
+      { label: "Yes, gated is important", helper: "I want controlled access, security, and a managed setting.", scores: { nuevo: 5, puntamita: 5 } },
+      { label: "Maybe, if it feels convenient", helper: "I like security, but do not want to feel isolated.", scores: { nuevo: 4, lacruz: 2, bucerias: 2, puntamita: 2 } },
+      { label: "No, I prefer town living", helper: "I want restaurants, neighbors, and local life outside my door.", scores: { bucerias: 4, lacruz: 3, sanpancho: 3, sayulita: 2 } },
+      { label: "Not important either way", helper: "The area, home quality, and lifestyle matter more than the gate.", scores: { bucerias: 2, lacruz: 2, sanpancho: 2, lodemarcos: 2, sanblas: 1 } }
+    ]
+  },
+  {
     prompt: "Which architecture pulls you in?",
     detail: "This helps separate resort modern from village character.",
     options: [
