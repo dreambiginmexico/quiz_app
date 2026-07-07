@@ -209,7 +209,7 @@ const questions: Question[] = [
     prompt: "Which activities matter most?",
     detail: "Pick the set that would make you happiest over a full season.",
     options: [
-      { label: "Easy beach access", helper: "Simple, repeatable days near the sand.", scores: { nuevo: 4, bucerias: 4, puntamita: 3, lodemarcos: 2 } },
+      { label: "Easy beach access", helper: "Simple, repeatable days near the sand.", scores: { nuevo: 4, bucerias: 5, puntamita: 3, lodemarcos: 2 } },
       { label: "Restaurants and cafes", helper: "Walkable meals, coffee, and casual social life.", scores: { bucerias: 5, sayulita: 3, sanpancho: 3, lacruz: 2 } },
       { label: "Golf, spa, and wellness", helper: "A polished lifestyle with recreation close by.", scores: { puntamita: 4, nuevo: 4, sanpancho: 1 } },
       { label: "Boating and seafood", helper: "Marina access, fishing culture, and fresh local meals.", scores: { lacruz: 5, puntamita: 2, bucerias: 1 } }
@@ -249,7 +249,7 @@ const questions: Question[] = [
     prompt: "Who should the local scene fit best?",
     detail: "Age fit is about community rhythm, not who is allowed anywhere.",
     options: [
-      { label: "Retirees and snowbirds", helper: "Calmer, service-friendly, and social.", scores: { nuevo: 4, bucerias: 3, lacruz: 3, lodemarcos: 1 } },
+      { label: "Retirees and snowbirds", helper: "Calmer, service-friendly, and social.", scores: { nuevo: 4, bucerias: 4, lacruz: 3, lodemarcos: 1 } },
       { label: "Families and mixed ages", helper: "Enough activities for several generations.", scores: { bucerias: 3, nuevo: 3, puntamita: 3, sanpancho: 2 } },
       { label: "Younger and highly social", helper: "Nightlife, surf, cafes, and movement.", scores: { sayulita: 5, bucerias: 2 } },
       { label: "Independent and nature-focused", helper: "Less age-defined, more self-directed.", scores: { sanblas: 4, sanpancho: 2, lodemarcos: 2 } }
@@ -263,6 +263,16 @@ const questions: Question[] = [
       { label: "Some, but not wild", helper: "Dinner, live music, then sleep.", scores: { bucerias: 4, lacruz: 3, sanpancho: 2 } },
       { label: "Very little", helper: "Quiet evenings are the point.", scores: { lodemarcos: 4, sanblas: 3, nuevo: 2 } },
       { label: "Private, polished social life", helper: "Curated restaurants and controlled energy.", scores: { puntamita: 5, nuevo: 2 } }
+    ]
+  },
+  {
+    prompt: "How much noise and activity are you comfortable having nearby?",
+    detail: "Think about the everyday sound level you would be happy living with.",
+    options: [
+      { label: "Quiet evenings are important", helper: "I want calm nights and a slower surrounding pace.", scores: { lodemarcos: 5, sanblas: 4, sanpancho: 3, lacruz: 2 } },
+      { label: "Balanced: active days, calmer nights", helper: "I like things to do, but I still want evenings to settle down.", scores: { lacruz: 4, sanpancho: 4, nuevo: 3, bucerias: 2, lodemarcos: 2 } },
+      { label: "I like walkable social energy", helper: "Restaurants, people, and town activity nearby feel like a plus.", scores: { bucerias: 5, sayulita: 4, lacruz: 2, sanpancho: 1 } },
+      { label: "I want private resort-style calm", helper: "I prefer a managed setting where activity feels controlled.", scores: { puntamita: 5, nuevo: 4, bucerias: 1 } }
     ]
   },
   {
@@ -289,7 +299,7 @@ const questions: Question[] = [
     prompt: "Which setting feels most like home?",
     detail: "This is the emotional compass question.",
     options: [
-      { label: "Wide beach and planned grounds", helper: "Open, orderly, and comfortable.", scores: { nuevo: 5, puntamita: 2 } },
+      { label: "Wide beach and planned grounds", helper: "Open, orderly, and comfortable.", scores: { nuevo: 5, bucerias: 4, puntamita: 2 } },
       { label: "Town center near the sand", helper: "Daily life and beach life overlap.", scores: { bucerias: 4, sayulita: 3, sanpancho: 2 } },
       { label: "Marina and fishing village", helper: "Boats, seafood, and bay views.", scores: { lacruz: 5 } },
       { label: "Small town with slower services", helper: "Less polish, more room to breathe.", scores: { lodemarcos: 4, sanblas: 3 } }
