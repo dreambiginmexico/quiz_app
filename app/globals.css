@@ -304,6 +304,12 @@ h3 {
   border-left: 5px solid var(--gold);
 }
 
+.nextStepActions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
 .runnerBlock {
   display: grid;
   gap: 12px;
@@ -430,6 +436,12 @@ textarea:focus {
   color: var(--teal);
   font-weight: 800;
   text-decoration: none;
+}
+
+.propertyRequestLink {
+  border-color: #f0a828;
+  background: #f0a828;
+  color: var(--ink);
 }
 
 .seoBand,

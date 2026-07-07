@@ -6,6 +6,7 @@ type LeadPayload = {
   phone?: string;
   country?: string;
   timeline?: string;
+  maxBudget?: string;
   match?: string;
   answers?: number[];
   message?: string;
@@ -34,6 +35,7 @@ function buildLeadEmail(lead: LeadPayload & { submittedAt: string }) {
     ["Phone", lead.phone || "Not provided"],
     ["Country", lead.country],
     ["Timeline", lead.timeline || "Not provided"],
+    ["Maximum Budget (USD)", lead.maxBudget || "Not provided"],
     ["Matched area", lead.match],
     ["Source", lead.source || "Not provided"],
     ["Submitted", lead.submittedAt]
@@ -64,6 +66,7 @@ function buildLeadEmail(lead: LeadPayload & { submittedAt: string }) {
       `Phone: ${lead.phone || "Not provided"}`,
       `Country: ${lead.country}`,
       `Timeline: ${lead.timeline || "Not provided"}`,
+      `Maximum Budget (USD): ${lead.maxBudget || "Not provided"}`,
       `Matched area: ${lead.match}`,
       `Source: ${lead.source || "Not provided"}`,
       `Submitted: ${lead.submittedAt}`,
@@ -124,6 +127,10 @@ export async function POST(request: Request) {
 
   if (!payload.name || !payload.email || !payload.country || !payload.match) {
     return NextResponse.json({ error: "Missing required lead fields" }, { status: 400 });
+  }
+
+  if (payload.match === "property-request" && !payload.maxBudget) {
+    return NextResponse.json({ error: "Missing maximum budget" }, { status: 400 });
   }
 
   const lead = {

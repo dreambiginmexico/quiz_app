@@ -533,19 +533,19 @@ function ResultView({
 
   return (
     <div className="resultBlock">
-      <div className="resultHeader">
-        <p className="eyebrow">Your best starting match</p>
-        <h2>{area.name}</h2>
-        <p>{area.tagline}</p>
-      </div>
-
-      <div className="teaserBox">
-        <h3>Quick read</h3>
-        <p>{area.buyerAngle}</p>
-      </div>
-
       {!leadUnlocked ? (
-        <LeadCapture answers={answers} matchKey={winner.key} onUnlock={onUnlock} />
+        <>
+          <div className="resultHeader">
+            <p className="eyebrow">Match ready</p>
+            <h2>Unlock your Riviera Nayarit area match.</h2>
+            <p>
+              Complete the quick form to see your best starting area, why it fits, and which nearby communities are
+              worth comparing.
+            </p>
+          </div>
+
+          <LeadCapture answers={answers} matchKey={winner.key} onUnlock={onUnlock} />
+        </>
       ) : (
         <FullResult area={area} onBack={onBack} onRestart={onRestart} runnersUp={runnersUp} />
       )}
@@ -667,9 +667,21 @@ function FullResult({
   onRestart: () => void;
 }) {
   const bookingUrl = process.env.NEXT_PUBLIC_BOOKING_URL || "/book";
+  const propertyRequestUrl = `${bookingUrl}${bookingUrl.includes("?") ? "&" : "?"}request=properties`;
 
   return (
     <>
+      <div className="resultHeader">
+        <p className="eyebrow">Your best starting match</p>
+        <h2>{area.name}</h2>
+        <p>{area.tagline}</p>
+      </div>
+
+      <div className="teaserBox">
+        <h3>Quick read</h3>
+        <p>{area.buyerAngle}</p>
+      </div>
+
       <div className="resultGrid">
         <article>
           <h3>Why it fits</h3>
@@ -702,9 +714,14 @@ function FullResult({
       <div className="nextStepBox">
         <h3>Smart next step</h3>
         <p>{area.nextStep}</p>
-        <a className="primaryLink" href={bookingUrl}>
-          Book a fit call
-        </a>
+        <div className="nextStepActions">
+          <a className="primaryLink" href={bookingUrl}>
+            Book a fit call
+          </a>
+          <a className="secondaryLink propertyRequestLink" href={propertyRequestUrl}>
+            Request 10 Best Properties For Sale That Best Meet Your Results
+          </a>
+        </div>
       </div>
 
       <div className="runnerBlock">

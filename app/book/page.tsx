@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { FormEvent, useState } from "react";
+import { FormEvent, useEffect, useState } from "react";
 
 type BookingForm = {
   name: string;
@@ -9,6 +9,7 @@ type BookingForm = {
   phone: string;
   country: string;
   timeline: string;
+  maxBudget: string;
   message: string;
 };
 
@@ -19,9 +20,16 @@ export default function BookPage() {
     phone: "",
     country: "",
     timeline: "",
+    maxBudget: "",
     message: ""
   });
   const [status, setStatus] = useState<"idle" | "saving" | "sent" | "error">("idle");
+  const [requestType, setRequestType] = useState("");
+  const isPropertyRequest = requestType === "properties";
+
+  useEffect(() => {
+    setRequestType(new URLSearchParams(window.location.search).get("request") ?? "");
+  }, []);
 
   const updateField = (field: keyof BookingForm, value: string) => {
     setForm((current) => ({ ...current, [field]: value }));
@@ -37,8 +45,8 @@ export default function BookPage() {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
           ...form,
-          match: "booking-request",
-          source: "book-fit-call-page"
+          match: isPropertyRequest ? "property-request" : "booking-request",
+          source: isPropertyRequest ? "best-properties-request-page" : "book-fit-call-page"
         })
       });
 
@@ -58,8 +66,8 @@ export default function BookPage() {
         <p className="eyebrow">Riviera Nayarit fit call</p>
         <h1>Book a quick call about your best-fit area.</h1>
         <p>
-          Share where you are in the buying process and what you are trying to figure out. This request can be sent
-          to your CRM once the webhook is connected.
+          Share where you are in the buying process and what you are trying to figure out.
+          {isPropertyRequest ? " Include your maximum budget so the property shortlist fits your range." : ""}
         </p>
       </section>
 
@@ -106,6 +114,19 @@ export default function BookPage() {
                 <option value="Just researching">Just researching</option>
               </select>
             </label>
+            {isPropertyRequest ? (
+              <label className="wideField">
+                Maximum Budget (USD)
+                <input
+                  inputMode="numeric"
+                  min="0"
+                  required
+                  type="number"
+                  value={form.maxBudget}
+                  onChange={(event) => updateField("maxBudget", event.target.value)}
+                />
+              </label>
+            ) : null}
             <label className="wideField">
               What do you want help with?
               <textarea value={form.message} onChange={(event) => updateField("message", event.target.value)} />
@@ -117,7 +138,7 @@ export default function BookPage() {
               Back to quiz
             </Link>
             <button className="primaryButton" disabled={status === "saving"} type="submit">
-              {status === "saving" ? "Sending..." : "Request fit call"}
+              {status === "saving" ? "Sending..." : isPropertyRequest ? "Request properties" : "Request fit call"}
             </button>
           </div>
           {status === "error" ? <p className="errorText">Something did not save. Try once more.</p> : null}
