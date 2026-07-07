@@ -64,7 +64,11 @@ export default function BookPage() {
     <main className="contentPage">
       <section className="contentHero">
         <p className="eyebrow">Riviera Nayarit fit call</p>
-        <h1>Book a quick call about your best-fit area.</h1>
+        <h1>
+          {isPropertyRequest
+            ? "Receive 10 properties by email that are currently for sale that best match your criteria"
+            : "Book a quick call about your best-fit area."}
+        </h1>
         <p>
           Share where you are in the buying process and what you are trying to figure out.
           {isPropertyRequest ? " Include your maximum budget so the property shortlist fits your range." : ""}

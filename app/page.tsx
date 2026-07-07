@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { FormEvent, useMemo, useState } from "react";
 
 type AreaKey =
@@ -29,6 +30,8 @@ type Question = {
 type Area = {
   name: string;
   tagline: string;
+  imageUrl: string;
+  imageAlt: string;
   bestFor: string;
   homeFit: string;
   architecture: string;
@@ -59,6 +62,8 @@ const areas: Record<AreaKey, Area> = {
   nuevo: {
     name: "Nuevo Nayarit / Flamingos",
     tagline: "Resort comfort, easy services, and polished condo living.",
+    imageUrl: "https://commons.wikimedia.org/wiki/Special:FilePath/Nuevo%20Vallarta.jpg",
+    imageAlt: "Nuevo Nayarit resort community with beach and marina-style development.",
     bestFor:
       "People who want predictable infrastructure, golf, wide beaches, condo inventory, and a quieter resort rhythm.",
     homeFit:
@@ -76,6 +81,8 @@ const areas: Record<AreaKey, Area> = {
   bucerias: {
     name: "Bucerias",
     tagline: "Walkable, social, artsy, and practical without losing the beach-town feel.",
+    imageUrl: "https://commons.wikimedia.org/wiki/Special:FilePath/Bucerias%20Street.jpg",
+    imageAlt: "A street scene in Bucerias with local town character.",
     bestFor:
       "People who want restaurants, galleries, markets, long beach walks, and everyday convenience close at hand.",
     homeFit:
@@ -93,6 +100,8 @@ const areas: Record<AreaKey, Area> = {
   lacruz: {
     name: "La Cruz de Huanacaxtle",
     tagline: "A marina town with local texture and a grown-up, nautical pace.",
+    imageUrl: "https://commons.wikimedia.org/wiki/Special:FilePath/Cruz%20de%20Huanacaxtle.jpg",
+    imageAlt: "The town center kiosk in La Cruz de Huanacaxtle.",
     bestFor:
       "Sailors, seafood lovers, and people who want a village feel with marina energy and calmer evenings.",
     homeFit:
@@ -110,6 +119,8 @@ const areas: Record<AreaKey, Area> = {
   puntamita: {
     name: "Punta Mita / Punta de Mita",
     tagline: "Luxury, privacy, surf, golf, and polished coastal living.",
+    imageUrl: "https://commons.wikimedia.org/wiki/Special:FilePath/Punta%20Mita%20Harbor.jpg",
+    imageAlt: "Fishing boats and coastal water near Punta Mita.",
     bestFor:
       "Buyers prioritizing premium amenities, golf, private communities, refined hospitality, and privacy.",
     homeFit:
@@ -127,6 +138,8 @@ const areas: Record<AreaKey, Area> = {
   sayulita: {
     name: "Sayulita",
     tagline: "Surf, nightlife, color, youth, and constant motion.",
+    imageUrl: "https://commons.wikimedia.org/wiki/Special:FilePath/Entrada%20a%20Sayulita%2002.jpg",
+    imageAlt: "Colorful entrance sign and street scene in Sayulita.",
     bestFor:
       "People who want energy, casual social life, beginner surf, boutiques, music, and a dense town center.",
     homeFit:
@@ -144,6 +157,8 @@ const areas: Record<AreaKey, Area> = {
   sanpancho: {
     name: "San Pancho",
     tagline: "Creative, thoughtful, village-scaled, and calmer than Sayulita.",
+    imageUrl: "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=900&q=80",
+    imageAlt: "A calm tropical beach scene representing San Pancho's slower coastal pace.",
     bestFor:
       "People who want culture, beach, wellness, local projects, and a smaller community with style.",
     homeFit:
@@ -161,6 +176,8 @@ const areas: Record<AreaKey, Area> = {
   lodemarcos: {
     name: "Lo de Marcos / Guayabitos / Chacala",
     tagline: "Slow beaches, value, and a more traditional coastal rhythm.",
+    imageUrl: "https://images.unsplash.com/photo-1519046904884-53103b34b206?auto=format&fit=crop&w=900&q=80",
+    imageAlt: "A quiet beach scene representing the slower Lo de Marcos coastal rhythm.",
     bestFor:
       "People who want a relaxed pace, less polish, family beach time, and better value than the busiest bay towns.",
     homeFit:
@@ -178,6 +195,8 @@ const areas: Record<AreaKey, Area> = {
   sanblas: {
     name: "San Blas",
     tagline: "History, nature, fishing, and an older Mexico feel.",
+    imageUrl: "https://commons.wikimedia.org/wiki/Special:FilePath/San%20Blas%20%28Mexico%29.JPG",
+    imageAlt: "Panorama of San Blas, Nayarit.",
     bestFor:
       "Explorers who value port-town history, fishing, authenticity, and lower-density living over resort convenience.",
     homeFit:
@@ -671,10 +690,15 @@ function FullResult({
 
   return (
     <>
-      <div className="resultHeader">
-        <p className="eyebrow">Your best starting match</p>
-        <h2>{area.name}</h2>
-        <p>{area.tagline}</p>
+      <div className="resultHeader matchHeader">
+        <div>
+          <p className="eyebrow">Your best starting match</p>
+          <h2>{area.name}</h2>
+          <p>{area.tagline}</p>
+        </div>
+        <div className="matchImageFrame">
+          <Image className="matchImage" src={area.imageUrl} alt={area.imageAlt} fill sizes="(max-width: 760px) 100vw, 360px" />
+        </div>
       </div>
 
       <div className="teaserBox">
