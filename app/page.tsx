@@ -66,7 +66,7 @@ const areas: Record<AreaKey, Area> = {
     architecture:
       "Contemporary resort architecture, landscaped condominium towers, and planned-community villas.",
     community:
-      "A strong fit for retirees, snowbirds, families, and buyers who prefer established services over bohemian bustle.",
+      "Nuevo Nayarit / Flamingos works well for buyers who want a polished, lower-friction community experience. Retirees, snowbirds, and families often like the reliable infrastructure, newer buildings, beach clubs, golf, security, and easier access to services. The social rhythm is comfortable and organized rather than village-like, so it suits people who want calm days, predictable amenities, and a softer landing into ownership in Mexico.",
     activities: ["Golf", "beach walking", "pickleball", "spa days", "easy dining", "marina access nearby"],
     cautions: "It can feel more resort-planned than village-like, especially compared with older towns.",
     buyerAngle:
@@ -83,7 +83,7 @@ const areas: Record<AreaKey, Area> = {
     architecture:
       "A mix of traditional Mexican town fabric, colorful facades, newer condos, and renovated beach homes.",
     community:
-      "Good for active retirees, couples, remote workers, and multi-generational visitors who want neighbors and choices.",
+      "Bucerias is one of the most balanced community fits in the bay. Active retirees, snowbirds, couples, remote workers, and multi-generational visitors can all find a rhythm here because the town has restaurants, cafes, galleries, markets, services, and long beach walks close together. It feels social without being only a party town, and it gives buyers the practical advantage of being able to live normally near the beach.",
     activities: ["Restaurants", "coffee", "markets", "cycling", "beach access", "day trips around the bay"],
     cautions: "Popular central blocks can be busy in high season.",
     buyerAngle:
@@ -100,7 +100,7 @@ const areas: Record<AreaKey, Area> = {
     architecture:
       "Fishing-village roots, marina residences, tiled roofs, terraces, and breezy indoor-outdoor plans.",
     community:
-      "Well suited to mature couples, boaters, independent retirees, and people who like a quieter social scene.",
+      "La Cruz de Huanacaxtle attracts people who like a quieter, more grown-up coastal scene with marina life, seafood, live music, and a real village texture. It is a good match for boaters, mature couples, independent retirees, and buyers who want community without constant nightlife. The town has personality and social connection, but it asks for a little more independence than Bucerias or Nuevo Nayarit.",
     activities: ["Boating", "fish market visits", "live music", "paddleboarding", "Sunday market", "bay excursions"],
     cautions: "Nightlife is lower-key, and some errands still pull you toward Bucerias or Puerto Vallarta.",
     buyerAngle:
@@ -117,7 +117,7 @@ const areas: Record<AreaKey, Area> = {
     architecture:
       "High-end tropical modern design, expansive terraces, stone, wood, palapa accents, and ocean-forward layouts.",
     community:
-      "Best for affluent families, executives, privacy seekers, and active adults who want services handled beautifully.",
+      "Punta Mita / Punta de Mita is the best fit for buyers who want privacy, service, and a premium lifestyle environment. Affluent families, executives, golfers, surfers, and active adults are drawn to the controlled pace, high-end amenities, private clubs, fine dining, and polished hospitality. The community is less about casual town living and more about ease, exclusivity, security, and having many details handled beautifully.",
     activities: ["Golf", "surfing", "boat trips", "fine dining", "private amenities", "whale watching in season"],
     cautions: "It is one of the pricier and more exclusive choices in the region.",
     buyerAngle:
@@ -134,7 +134,7 @@ const areas: Record<AreaKey, Area> = {
     architecture:
       "Bohemian color, tropical courtyards, open-air living, murals, palapas, and eclectic renovations.",
     community:
-      "A natural match for younger travelers, young families, digital nomads, and highly social adults.",
+      "Sayulita is a natural match for buyers who want energy, color, surf culture, nightlife, and a highly social town center. Younger travelers, digital nomads, young families, and rental-minded owners often like its constant motion and strong visitor demand. It is lively and memorable, but the same qualities that make it exciting can also mean more crowds, sound, traffic, and day-to-day intensity.",
     activities: ["Surf lessons", "nightlife", "yoga", "boutiques", "cafes", "walkable dining"],
     cautions: "It can be noisy and crowded, so tranquility seekers may prefer nearby San Pancho or Lo de Marcos.",
     buyerAngle:
@@ -151,7 +151,7 @@ const areas: Record<AreaKey, Area> = {
     architecture:
       "Artful tropical homes, natural materials, courtyards, shaded patios, and low-rise village design.",
     community:
-      "Strong for creative adults, families, mindful retirees, and people who prefer community over nightlife.",
+      "San Pancho has a thoughtful, creative community feel with a calmer pace than Sayulita. It suits creative adults, families, mindful retirees, wellness-focused buyers, and people who value local projects, music, culture, and a strong sense of place. The community feels more curated and village-scaled, with less nightlife and fewer big-resort services, so it works best for buyers who prize atmosphere over convenience.",
     activities: ["Yoga", "community events", "beach sunsets", "small restaurants", "music", "wellness"],
     cautions: "There are fewer big-resort services, and inventory can be limited.",
     buyerAngle:
@@ -168,7 +168,7 @@ const areas: Record<AreaKey, Area> = {
     architecture:
       "Traditional coastal houses, modest villas, shaded patios, and informal beach-town streets.",
     community:
-      "Good for budget-aware retirees, families, quiet couples, and travelers who like local life more than amenities.",
+      "Lo de Marcos / Guayabitos / Chacala is a good match for buyers who want a slower, more traditional beach rhythm and are comfortable with fewer upscale services. Budget-aware retirees, quiet couples, families, and longer-stay travelers may appreciate the value, simpler streets, local food, and relaxed beach days. This lane rewards buyers who are not chasing polish and who are comfortable trading convenience for calm, space, and a more local feel.",
     activities: ["Swimming", "fishing", "beach picnics", "local markets", "bike rides", "quiet restaurants"],
     cautions: "Expect fewer upscale restaurants, medical options, and English-speaking services than farther south.",
     buyerAngle:
@@ -185,7 +185,7 @@ const areas: Record<AreaKey, Area> = {
     architecture:
       "Older port-town buildings, simple coastal homes, colonial references, and less manicured streetscapes.",
     community:
-      "Best for self-sufficient adults, artists, independent retirees, and people comfortable outside expat centers.",
+      "San Blas is for self-sufficient buyers who want history, nature, fishing, authenticity, and a lower-density coastal life. It can appeal to artists, independent retirees, explorers, and people who are comfortable outside the standard foreign-buyer path. The community is less polished and farther from Puerto Vallarta services, so it fits buyers who value character and independence more than convenience or expat infrastructure.",
     activities: ["Fishing", "history walks", "local food", "surf breaks", "quiet exploration", "traditional town life"],
     cautions: "It is farther from Puerto Vallarta services and less polished than the southern Riviera Nayarit towns.",
     buyerAngle:
@@ -443,16 +443,25 @@ export default function Home() {
         </div>
         <div className="seoGrid">
           <article>
-            <h3>For Canadian snowbirds</h3>
-            <p>Compare walkability, medical access, condo rules, property management, and seasonal social life.</p>
+            <h3>For lifestyle-first buyers</h3>
+            <p>
+              Compare daily pace, beach access, restaurants, nightlife, noise tolerance, walkability, and whether you
+              want resort calm, town energy, creative village life, or a quieter traditional rhythm.
+            </p>
           </article>
           <article>
-            <h3>For US vacation-home buyers</h3>
-            <p>Look at beach access, rental demand, building quality, HOA fees, and how easy the area is to use without friction.</p>
+            <h3>For home-fit decisions</h3>
+            <p>
+              Use your result to think through property type, architecture, gated versus open town living, modern condo
+              convenience, luxury privacy, colorful hillside character, or simple coastal practicality.
+            </p>
           </article>
           <article>
-            <h3>For investors</h3>
-            <p>Match lifestyle appeal with rental rules, occupancy patterns, management costs, and realistic resale demand.</p>
+            <h3>For community and comfort fit</h3>
+            <p>
+              Pressure-test who the area feels built for, how social or quiet you want daily life to be, your budget
+              comfort zone, and which tradeoffs you are most willing to accept.
+            </p>
           </article>
         </div>
       </section>
